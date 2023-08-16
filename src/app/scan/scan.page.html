@@ -20,29 +20,49 @@
   <ion-list>
     <ion-item-group>
       <ion-item-divider>
-        <ion-label> Section A </ion-label>
+        <ion-label> Tags </ion-label>
       </ion-item-divider>
-      <ion-item>
-        <ion-label>Pokémon Yellow</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Mega Man X</ion-label>
+      <ion-item *ngFor="let tag of tagValues()">
+        <ion-label>
+          <strong>{{ tag.epc }}</strong>
+          <br>
+          Type: {{ tag.type }}
+          <br>
+          URI: {{ tag.uri }}
+          <br>
+          Barcode: {{ tag.barcode }}
+          <br>
+          Serial: {{ tag.serial }}
+        </ion-label>
       </ion-item>
     </ion-item-group>
 
     <ion-item-group>
       <ion-item-divider>
-        <ion-label> Section B </ion-label>
+        <ion-label> Details </ion-label>
       </ion-item-divider>
       <ion-item>
-        <ion-label>The Legend of Zelda</ion-label>
+        <ion-label>Model: {{ model() }}</ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>Pac-Man</ion-label>
+        <ion-label>Scanning: {{ scanning() ? 'YES' : 'no' }}</ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>{{ newTodo }}</ion-label>
+        <ion-label>Rate: {{ rate() }}</ion-label>
       </ion-item>
+      <ion-item>
+        <ion-label>Reads: {{ reads() }}</ion-label>
+      </ion-item>
+<!--      <ion-item>-->
+<!--        <ion-button expand="block" size="large" color="primary" (click)="startScan()">-->
+<!--          Start Scan-->
+<!--        </ion-button>-->
+<!--      </ion-item>-->
+<!--      <ion-item>-->
+<!--        <ion-button expand="block" size="large" color="secondary" (click)="stopScan()">-->
+<!--          Stop Scan-->
+<!--        </ion-button>-->
+<!--      </ion-item>-->
     </ion-item-group>
   </ion-list>
 </ion-content>
